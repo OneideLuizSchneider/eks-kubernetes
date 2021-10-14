@@ -45,6 +45,8 @@
     - `kubectl apply -f ./files/eks-console-restricted-access.yaml` 
   - Documentation: <https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html>
 
-
+\
+\
 AWS Official Documentation: <https://docs.aws.amazon.com/eks/index.html>
+\
 Terraform Official Documentation: <https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster>
