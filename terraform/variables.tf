@@ -4,12 +4,17 @@ terraform {
 
 variable "env" {
   type = string
-  default = "hml"
+  default = "staging"
+}
+
+variable "cluster_version" {
+  type = string
+  default = "v2"
 }
 
 variable "eks_cluster_name" {
   type = string
-  default = "eks-cluster-v2"
+  default = "eks-cluster-name"
 }
 
 locals{
@@ -21,11 +26,11 @@ locals{
     subnets = ["..."]
     internal_ip_range = "0.0.0.0/0"
 
-    eks_version = "..."
-    cluster_name = var.eks_cluster_name      
+    eks_version = "1.22"
+    cluster_name = "${var.eks_cluster_name}-${var.env}-${var.cluster_version}"     
     cluster_enabled_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
     asg_desired_capacity = 1
-    asg_max_size = 3
+    asg_max_size = 2
     asg_min_size = 1
     instance_type = ["..."]
 }
