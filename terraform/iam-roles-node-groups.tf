@@ -28,6 +28,16 @@ resource "aws_iam_role_policy_attachment" "node-group-AmazonEC2ContainerRegistry
   role       = aws_iam_role.node-group.name
 }
 
+resource "aws_iam_role_policy_attachment" "node-group-AmazonSSMManagedInstanceCore" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+  role       = aws_iam_role.node-group.name
+}
+
+resource "aws_iam_role_policy_attachment" "node-group-CloudWatchAgentServerPolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
+  role       = aws_iam_role.node-group.name
+}
+
 resource "aws_iam_role_policy" "node-group-ClusterAutoscalerPolicy" {
   name = "eks-cluster-auto-scaler"
   role = aws_iam_role.node-group.id
