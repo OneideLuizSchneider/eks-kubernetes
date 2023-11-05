@@ -22,7 +22,7 @@ locals{
     subnets = ["..."]
     internal_ip_range = "0.0.0.0/0"
 
-    eks_version = "1.22"
+    eks_version = "1.27"
     cluster_name = "${var.eks_cluster_name}-${var.env}-${var.cluster_version}"     
     cluster_enabled_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
     asg_desired_capacity = 1
