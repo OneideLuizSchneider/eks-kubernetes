@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+    
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.1.7
+
+      - name: Terraform Fmt
+        id: fmt
+        run: cd terraform && terraform fmt -check -diff
+        continue-on-error: false
+
+      - name: Terraform Init
+        id: init
+        run: cd terraform && terraform init
+        continue-on-error: false
+
+      - name: Terraform Validate
+        id: validate
+        run: cd terraform && terraform validate -no-color
+        continue-on-error: false
