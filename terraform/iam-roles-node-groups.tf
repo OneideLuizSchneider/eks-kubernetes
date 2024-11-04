@@ -52,7 +52,10 @@ resource "aws_iam_role_policy" "node-group-ClusterAutoscalerPolicy" {
             "autoscaling:DescribeLaunchConfigurations",
             "autoscaling:DescribeTags",
             "autoscaling:SetDesiredCapacity",
-            "autoscaling:TerminateInstanceInAutoScalingGroup"
+            "autoscaling:TerminateInstanceInAutoScalingGroup",
+            "autoscaling:DescribeScalingActivities",
+            "ec2:DescribeLaunchTemplateVersions",
+            "eks:DescribeNodegroup"
         ]
         Effect   = "Allow"
         Resource = "*"

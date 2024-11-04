@@ -21,7 +21,8 @@ resource "aws_eks_node_group" "private" {
     aws_iam_role_policy_attachment.node-group-AmazonEKS_CNI_Policy,
     aws_iam_role_policy_attachment.node-group-AmazonEC2ContainerRegistryReadOnly,
     aws_iam_role_policy_attachment.node-group-AmazonSSMManagedInstanceCore,
-    aws_iam_role_policy_attachment.node-group-CloudWatchAgentServerPolicy
+    aws_iam_role_policy_attachment.node-group-CloudWatchAgentServerPolicy,
+    aws_iam_role_policy.node-group-ClusterAutoscalerPolicy
   ]
 
   tags = {
