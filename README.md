@@ -47,6 +47,9 @@
 
 \
 \
+***Obs***: This is a widely open cluster, for Production env. the Cluster should be fully Private running under private subnets.
+
+\
 AWS Official Documentation: <https://docs.aws.amazon.com/eks/index.html>
 \
 Terraform Official Documentation: <https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster>

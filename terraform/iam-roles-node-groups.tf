@@ -47,12 +47,15 @@ resource "aws_iam_role_policy" "node-group-ClusterAutoscalerPolicy" {
     Statement = [
       {
         Action = [
-            "autoscaling:DescribeAutoScalingGroups",
-            "autoscaling:DescribeAutoScalingInstances",
-            "autoscaling:DescribeLaunchConfigurations",
-            "autoscaling:DescribeTags",
-            "autoscaling:SetDesiredCapacity",
-            "autoscaling:TerminateInstanceInAutoScalingGroup"
+          "autoscaling:DescribeAutoScalingGroups",
+          "autoscaling:DescribeAutoScalingInstances",
+          "autoscaling:DescribeLaunchConfigurations",
+          "autoscaling:DescribeTags",
+          "autoscaling:SetDesiredCapacity",
+          "autoscaling:TerminateInstanceInAutoScalingGroup",
+          "autoscaling:DescribeScalingActivities",
+          "ec2:DescribeLaunchTemplateVersions",
+          "eks:DescribeNodegroup"
         ]
         Effect   = "Allow"
         Resource = "*"

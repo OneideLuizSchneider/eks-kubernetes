@@ -1,32 +1,37 @@
 variable "env" {
-  type = string
+  type    = string
   default = "staging"
 }
 
 variable "cluster_version" {
-  type = string
-  default = "v3"
+  type    = string
+  default = "v31"
 }
 
 variable "eks_cluster_name" {
-  type = string
+  type    = string
   default = "cluster-name"
 }
 
-locals{
-    access_key = "..."
-    secret_key = "..."
-    region = "..."
+variable "eks_cluster_version" {
+  type    = string
+  default = "1.31"
+}
 
-    vpc_id = "..."
-    subnets = ["..."]
-    internal_ip_range = "0.0.0.0/0"
+locals {
+  access_key = "..."
+  secret_key = "..."
+  region     = "..."
 
-    eks_version = "1.27"
-    cluster_name = "${var.eks_cluster_name}-${var.env}-${var.cluster_version}"     
-    cluster_enabled_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
-    asg_desired_capacity = 1
-    asg_max_size = 2
-    asg_min_size = 1
-    instance_type = ["..."]
+  vpc_id            = "..."
+  subnets           = ["..."]
+  internal_ip_range = "0.0.0.0/0"
+
+  eks_version               = var.eks_cluster_version
+  cluster_name              = "${var.eks_cluster_name}-${var.env}-${var.cluster_version}"
+  cluster_enabled_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
+  asg_desired_capacity      = 1
+  asg_max_size              = 2
+  asg_min_size              = 1
+  instance_type             = ["..."]
 }
