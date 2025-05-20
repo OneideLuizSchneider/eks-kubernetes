@@ -6,13 +6,14 @@
 #### Steps
 
 - Configure AWS Cli `aws configure`
-- Configure the variables on `./terraform/variables.tf`:
+- Configure the variables on `./terraform/variables.tf` and `./terraform/local.tf`:
   - Add AWS Keys and Region
   - Configure the VPC ID and Subnets
   - Configure the instance type, example `t2.small`
   - Configure Cluster nome as you wish
-  - Configure K8s version, example `1.20`
-  - Configure/change whatever you want :D
+  - Configure K8s version, example `1.31`
+  - Configure/change whatever you want...
+  - 
 - `terraform init`
 - `terraform plan`
 - `terraform apply`
