@@ -1,11 +1,11 @@
 variable "env" {
   type    = string
-  default = "staging"
+  default = "dev"
 }
 
 variable "cluster_version" {
   type    = string
-  default = "v31"
+  default = "v33"
 }
 
 variable "eks_cluster_name" {
@@ -15,7 +15,7 @@ variable "eks_cluster_name" {
 
 variable "eks_cluster_version" {
   type    = string
-  default = "1.31"
+  default = "1.33"
 }
 
 variable "region" {
