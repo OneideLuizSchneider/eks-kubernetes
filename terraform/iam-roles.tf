@@ -10,7 +10,10 @@ resource "aws_iam_role" "eks" {
       "Principal": {
         "Service": "eks.amazonaws.com"
       },
-      "Action": "sts:AssumeRole"
+      "Action": [
+          "sts:AssumeRole",
+          "sts:TagSession"
+      ]
     }
   ]
 }
@@ -29,5 +32,25 @@ resource "aws_iam_role_policy_attachment" "eks-AmazonEKSServicePolicy" {
 
 resource "aws_iam_role_policy_attachment" "eks-AmazonEKSVPCResourceController" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+  role       = aws_iam_role.eks.name
+}
+
+resource "aws_iam_role_policy_attachment" "eks-AmazonEKSBlockStoragePolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicy"
+  role       = aws_iam_role.eks.name
+}
+
+resource "aws_iam_role_policy_attachment" "eks-AmazonEKSComputePolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSComputePolicy"
+  role       = aws_iam_role.eks.name
+}
+
+resource "aws_iam_role_policy_attachment" "eks-AmazonEKSLoadBalancingPolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy"
+  role       = aws_iam_role.eks.name
+}
+
+resource "aws_iam_role_policy_attachment" "eks-AmazonEKSNetworkingPolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy"
   role       = aws_iam_role.eks.name
 }

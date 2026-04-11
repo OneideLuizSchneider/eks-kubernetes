@@ -5,7 +5,7 @@ variable "env" {
 
 variable "cluster_version" {
   type    = string
-  default = "v33"
+  default = "v35"
 }
 
 variable "eks_cluster_name" {
@@ -15,7 +15,7 @@ variable "eks_cluster_name" {
 
 variable "eks_cluster_version" {
   type    = string
-  default = "1.33"
+  default = "1.35"
 }
 
 variable "region" {
